@@ -99,7 +99,7 @@ COPY --chown=www-data:www-data vendor /app/vendor
 # Create Laravel caching folders
 RUN mkdir -p ./storage/framework/{cache,testing,sessions,views,bootstrap/cache}
 
-# Adjust user permission & group
+# Adjust user permission & groups
 RUN usermod --uid 1000 www-data
 RUN groupmod --gid 1000 www-data
 
