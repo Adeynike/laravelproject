@@ -11,8 +11,16 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
-$app = require_once __DIR__.'/../bootstrap/app.php';
 
 // Bootstrap Laravel and handle the request...
-(require_once __DIR__.'/../bootstrap/app.php')
-   ->handleRequest(Request::capture());
+$app = require_once __DIR__.'/../bootstrap/app.php';
+
+// Check if $app is an instance of the Laravel application
+if ($app instanceof \Illuminate\Contracts\Foundation\Application) {
+    // If it is, handle the request
+    $app->handleRequest(Request::capture());
+} else {
+    // Otherwise, print an error message
+    echo "Error: Bootstrap file did not return an instance of the Laravel application.";
+    // You might want to log this error instead of printing it out
+}
