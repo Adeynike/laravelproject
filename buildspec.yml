@@ -15,7 +15,7 @@ phases:
   build:
     on-failure: ABORT
     commands:
-      - docker build -t laravel-prob-image .
+      - docker build -t laravel-prob-image 
       - docker tag laravel-prob-image:latest 147726474727.dkr.ecr.us-east-1.amazonaws.com/laravel-prob-image:latest
 
   post_build:
