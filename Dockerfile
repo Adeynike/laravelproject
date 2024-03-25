@@ -108,8 +108,3 @@ RUN chmod +x docker/entrypoint.sh
 
 # Set entrypoint
 ENTRYPOINT ["./docker/entrypoint.sh"]
-
-# Override the "max depth exceeded" error by squashing layers
-# This command merges all the layers into a single layer
-RUN docker save php:latest | docker load --input-type tar --input - | docker save --output /tmp/php-squashed.tar --squash
-RUN docker load --input /tmp/php-squashed.tar
