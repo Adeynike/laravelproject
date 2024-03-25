@@ -94,7 +94,7 @@ COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --chown=www-data:www-data . .
 
 # Copy vendor directory
-COPY --chown=www-data:www-data /c/xampp1/htdocs/laravelapp/vendor ./vendor
+COPY --chown=www-data:www-data vendor ./vendor
 
 # Create Laravel caching folders
 RUN mkdir -p ./storage/framework/{cache,testing,sessions,views,bootstrap/cache}
