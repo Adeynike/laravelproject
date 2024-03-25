@@ -103,7 +103,7 @@ RUN mkdir -p ./storage/framework/{cache,testing,sessions,views,bootstrap/cache}
 RUN usermod --uid 1000 www-data
 RUN groupmod --gid 1000 www-data
 
-# Make entrypoint script executable
+# Make entrypoint script executable and smooth
 RUN chmod +x docker/entrypoint.sh
 
 # Set entrypoint
