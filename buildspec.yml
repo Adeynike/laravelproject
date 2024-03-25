@@ -4,6 +4,10 @@ phases:
   install:
     runtime-versions:
       php: 8.2
+    commands:
+      # Install Composer
+      - curl -sS https://getcomposer.org/installer | php
+      - mv composer.phar /usr/local/bin/composer
 
   pre_build:
     on-failure: ABORT
