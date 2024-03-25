@@ -4,21 +4,26 @@ phases:
   install:
     runtime-versions:
       php: 8.2
+    commands:
+      # Install Composer
+      - curl -sS https://getcomposer.org/installer | php
+      - mv composer.phar /usr/local/bin/composer
 
   pre_build:
     on-failure: ABORT
     commands:
-      - echo "logging in to Amazon ECR ..."
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $REPOSITORY
+      - echo "logging:in to Amazon ECR"
+     # - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $REPOSITORY
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 147726474727.dkr.ecr.us-east-1.amazonaws.com
       
   build:
     on-failure: ABORT
     commands:
-      - docker build -t $IMAGE
-      - docker tag $IMAGE:$IMAGE_TAG $REPOSITORY/$IMAGE:$IMAGE_TAG
+      - docker build -t laravel-prob-image .
+      - docker tag laravel-prob-image:latest 147726474727.dkr.ecr.us-east-1.amazonaws.com/laravel-prob-image:latest
 
   post_build:
     on-failure: ABORT
     commands:
       - docker images ls -a
-      - docker push $REPOSITORY/$IMAGE:$IMAGE_TAG
+      - docker push 147726474727.dkr.ecr.us-east-1.amazonaws.com/laravel-prob-image:latest
