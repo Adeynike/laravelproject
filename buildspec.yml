@@ -15,11 +15,11 @@ phases:
   build:
     on-failure: ABORT
     commands:
-      - docker build -t $IMAGE
-      - docker tag $IMAGE:$IMAGE_TAG $REPOSITORY/$IMAGE:$IMAGE_TAG
+      - docker build -t laravel-prob-image
+      - docker tag laravel-prob-image:latest 147726474727.dkr.ecr.us-east-1.amazonaws.com/laravel-prob-image:latest
 
   post_build:
     on-failure: ABORT
     commands:
       - docker images ls -a
-      - docker push $REPOSITORY/$IMAGE:$IMAGE_TAG
+      - docker push 147726474727.dkr.ecr.us-east-1.amazonaws.com/laravel-prob-image:latest
