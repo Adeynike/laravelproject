@@ -80,6 +80,7 @@ RUN apt-get update \
         git \
         unzip \
         libzip-dev \
+        curl \
     && rm -rf /var/lib/apt/lists/* \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
