@@ -1,0 +1,63 @@
+*.sqlite*
+
+# Ignore vendor directory
+/vendor/
+
+# Ignore node_modules directory
+/node_modules/
+
+# Ignore storage directory (for Laravel)
+/storage/
+
+# Ignore environment configuration file
+.env
+
+# Ignore IDE/Editor files
+/.idea/
+/.vscode/
+
+# Ignore logs and other temporary files
+/*.log
+*.log.*
+logs/
+
+# Ignore compiled PHP files
+/*.phpc
+
+# Ignore SQLite database files
+*.sqlite
+*.sqlite3
+
+# Ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore thumbnails created by Windows
+Thumbs.db
+
+# Ignore cache and temporary files
+.cache/
+.temp/
+
+# Ignore Terraform directory
+.terraform/
+
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.backup
+*.tfplan
+*.tfvars
+*.terraform
+*.terraform.lock.hcl
+Terraform\.terraform.lock.hcl
+# Ignore provider plugin binaries
+*.exe
+*.bin
+*.zip
