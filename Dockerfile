@@ -55,6 +55,9 @@ COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 # Copy files from current folder to container current folder (set in workdir)
 COPY --chown=www-data:www-data . .
 
+# Copy vendor directory
+COPY --chown=www-data:www-data vendor /app/vendor
+
 # Create Laravel caching folders
 RUN mkdir -p ./storage/framework/{cache,testing,sessions,views,bootstrap/cache}
 
