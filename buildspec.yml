@@ -9,13 +9,13 @@ phases:
     
     commands:
       - echo "logging in to Amazon ECR ..."
-      - aon-failure: ABORTws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $REPOSITORY
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $REPOSITORY
 
   build:
     on-failure: ABORT
     commands:
       - docker build -t $IMAGE
-      - docker tag $IMAGE:$IMAGE_TAG:$REPOSITORY/$IMAGE:$IMAGE_TAG
+      - docker tag $IMAGE:$IMAGE_TAG $REPOSITORY/$IMAGE:$IMAGE_TAG
 
   post_build:
     on-failure: ABORT
